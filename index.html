@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Deploying To React</title>
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<h1>How to Deploy a Create React App to Github</h1>
+		<ol>
+			<li class="list-item">Create a new repository on Github</li>
+			<li class="list-item">
+				Install the <b>gh-pages</b> package via the command line:
+				<span class="span">npm install gh-pages --save-dev</span>
+			</li>
+			<li class="list-item">
+				In the top level of the package.json, add the 'homepage' details and save:
+				<span class="span-2"
+					>"homepage": "http://<span class="span-3">{gitname}</span>.github.io/<span class="span-3"
+						>{repository}</span
+					>"</span
+				>
+			</li>
+			<li class="list-item">
+				In the 'scripts' located in the package.json, add the following scripts and save:
+				<ul>
+					<li class="list-item-2"><span class="span-2">"predeploy": "npm run build",</span></li>
+					<li class="list-item-2"><span class="span-2">"deploy": "gh-pages -d build"</span></li>
+				</ul>
+			</li>
+			<li class="list-item">
+				Set up the repository via the command line using the commands provided from Github when the repository
+				was initially created:
+				<ul>
+					<li class="list-item-2">
+						<span class="span"
+							>git remote add origin https://github.com/<span class="span-3">{gitname}</span
+							>/deploying-react-app.git</span
+						>
+					</li>
+					<li class="list-item-2"><span class="span">git branch -M main</span></li>
+					<li class="list-item-2"><span class="span">git push -u origin main</span></li>
+				</ul>
+			</li>
+			<li class="list-item">
+				Add, commit, and push your repository to GitHub using the command line:
+				<ul>
+					<li class="list-item-2"><span class="span">git add .</span></li>
+					<li class="list-item-2">
+						<span class="span">git commit -m "<span class="span-3">{comment}</span>"</span>
+					</li>
+					<li class="list-item-2"><span class="span">git push</span></li>
+				</ul>
+			</li>
+			<li class="list-item">
+				Deploy the site on Github using the 'deploy' script added to the package.json earlier:
+				<span class="span">npm run deploy</span>
+			</li>
+		</ol>
+	</body>
+</html>
